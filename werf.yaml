@@ -1,5 +1,5 @@
 project: k8s-from-zero-to-hero
-configVversion: 1
+configVersion: 1
 ---
 image: ubuntu-test
 dockerfile: Dockerfile.test
