@@ -1,0 +1,5 @@
+app:
+  replicas: 4
+  containerPort: 8080
+  servicePort: 8080
+  domain: "example.com"
