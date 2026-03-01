@@ -1,19 +1,22 @@
+{{ $domain := .Values.app.domain }}
+{{ $servicePort := .Values.app.servicePort }}
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: web-ingress
+  name: {{ .Chart.Name }}-web
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: {{ .Chart.Name }}-web
 spec:
   rules:
-  - host: example.com  # замените на ваш домен
+  - host: {{ $domain }}
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: web
+            name: {{ .Chart.Name }}-web
             port:
-              number: 8080
+              number: {{ $servicePort }}
 

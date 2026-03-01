@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: {{ .Chart.Name }}-web
   labels:
-    app: web
+    app: {{ .Chart.Name }}-web
   namespace: default
 spec:
-  replicas: 3
+  replicas: {{ .Values.app.replicas }}
   selector:
     matchLabels:
-      app: web
+      app: {{ .Chart.Name }}-web
   template:
     metadata:
       labels:
-        app: web
+        app: {{ .Chart.Name }}-web
     spec:
       imagePullSecrets:
       - name: registrysecret
@@ -22,4 +22,4 @@ spec:
         image: {{ .Values.werf.image.app }}
         command: ["/goapp"]
         ports:
-          - containerPort: 8080
+          - containerPort: {{ .Values.app.containerPort }}
