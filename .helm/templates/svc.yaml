@@ -6,7 +6,7 @@ metadata:
   name: web
 spec:
   ports:
-  - name: web_8080
+  - name: web8080
     port: 8080
     protocol: TCP
     targetPort: 8080
