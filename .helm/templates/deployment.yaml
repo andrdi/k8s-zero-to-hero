@@ -25,7 +25,7 @@ spec:
         - name: app
           containerPort: {{ .Values.app.containerPort }}
       - name: nginx
-        image: {{ .Values.werf.image.nginx }}a
+        image: {{ .Values.werf.image.nginx }}
         ports:
         - name: http
           containerPort: {{ .Values.nginx.targetPort }}
