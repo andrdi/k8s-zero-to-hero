@@ -22,4 +22,10 @@ spec:
         image: {{ .Values.werf.image.app }}
         command: ["/goapp"]
         ports:
-          - containerPort: {{ .Values.app.containerPort }}
+        - name: app
+          containerPort: {{ .Values.app.containerPort }}
+      - name: nginx
+        image: {{ .Values.werf.image.nginx }}a
+        ports:
+        - name: http
+          containerPort: {{ .Values.nginx.targetPort }}

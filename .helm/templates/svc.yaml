@@ -6,7 +6,7 @@ spec:
   ports:
   - port: {{ .Values.app.servicePort }}
     protocol: TCP
-    targetPort: {{ .Values.app.containerPort }}
+    targetPort: {{ .Values.nginx.targetPort }}
   selector:
     app: {{ .Chart.Name }}-web
   type: ClusterIP

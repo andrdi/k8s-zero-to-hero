@@ -26,3 +26,12 @@ import:
   add: /goapp
   to: /goapp
   after: install
+---
+image: nginx
+from: nginx:alpine
+git:
+- add: /static
+  to: /var/www/static
+- add: /.werf/nginx.conf
+  to: /etc/nginx/nginx.conf
+
